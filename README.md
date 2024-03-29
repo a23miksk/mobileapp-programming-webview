@@ -12,6 +12,9 @@ Därefter skapades en assets folder och sedan en index.html-fil som kopierar htm
 För att visa hemsidorna lades `myWebView.loadUrl("https://his.se");` till i metoden showExternalWebPage() och `myWebView.loadUrl("file:///android_asset/index.html");` i metoden showInternalWebPage().
 Till sist lades metoderna i den färdiga metoden onOptionsItemSelected så att websidorna kallas när dropdown-menyerna klickas. 
 
-![ExternalWebImage.png](ExternalWebImage.png)
 
+
+# External Web Page
+![ExternalWebImage.png](ExternalWebImage.png)
+# Internal Web Page
 ![InternalWebImage.png](InternalWebImage.png)

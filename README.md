@@ -12,9 +12,17 @@ Därefter skapades en assets folder och sedan en index.html-fil som kopierar htm
 För att visa hemsidorna lades `myWebView.loadUrl("https://his.se");` till i metoden showExternalWebPage() och `myWebView.loadUrl("file:///android_asset/index.html");` i metoden showInternalWebPage().
 Till sist lades metoderna i den färdiga metoden onOptionsItemSelected så att websidorna kallas när dropdown-menyerna klickas. 
 
+# Code
+```
+myWebView = findViewById(R.id.my_webview);
+myWebView.setWebViewClient(new WebViewClient());
+myWebView.getSettings().setJavaScriptEnabled(true);
+```
+Kod som beskriver att myWebView ska vara xml-elemntet med id:t "my_webview".
+En WebViewClient sätts sedan till elementet så att den kan visa hemsidor,
+och till sist aktiveras javascript.
 
-
-# External Web Page
+# External Web Page Image
 ![ExternalWebImage.png](ExternalWebImage.png)
-# Internal Web Page
+# Internal Web Page Image
 ![InternalWebImage.png](InternalWebImage.png)

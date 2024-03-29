@@ -1,42 +1,17 @@
 
 # Rapport
 
-**Skriv din rapport här!**
+Först öppnades res/values/strings.xml och stringen WebViewApp ändrades till MikWebApp.
+Sedan lades `<uses-permission android:name="android.permission.INTERNET" />` till i AndroidManifest.xml för att tillåta internet till appen.
+Elementet TextView i activity_main.xml ändrades därefter till en WebView.
+Sedan gavs WebView:en ett id med `android:id="@+id/my_webview`.
+`private WebView myWebView;` laddes till i MainActivity.java och `myWebView = findViewById(R.id.my_webview);` i metoden onCreate så att java-filen kan manipulera xml-elementet.
+`myWebView.setWebViewClient(new WebViewClient());` laddes också till i java-filen.
+Javascript sattes sedan på med `myWebView.getSettings().setJavaScriptEnabled(true);`
+Därefter skapades en assets folder och sedan en index.html-fil som kopierar html-skelettet i https://www.w3schools.com/w3css/w3css_web_html.asp
+För att visa hemsidorna lades `myWebView.loadUrl("https://his.se");` till i metoden showExternalWebPage() och `myWebView.loadUrl("file:///android_asset/index.html");` i metoden showInternalWebPage().
+Till sist lades metoderna i den färdiga metoden onOptionsItemSelected så att websidorna kallas när dropdown-menyerna klickas. 
 
-_Du kan ta bort all text som finns sedan tidigare_.
+![ExternalWebImage.png](ExternalWebImage.png)
 
-## Följande grundsyn gäller dugga-svar:
-
-- Ett kortfattat svar är att föredra. Svar som är längre än en sida text (skärmdumpar och programkod exkluderat) är onödigt långt.
-- Svaret skall ha minst en snutt programkod.
-- Svaret skall inkludera en kort övergripande förklarande text som redogör för vad respektive snutt programkod gör eller som svarar på annan teorifråga.
-- Svaret skall ha minst en skärmdump. Skärmdumpar skall illustrera exekvering av relevant programkod. Eventuell text i skärmdumpar måste vara läsbar.
-- I de fall detta efterfrågas, dela upp delar av ditt svar i för- och nackdelar. Dina för- respektive nackdelar skall vara i form av punktlistor med kortare stycken (3-4 meningar).
-
-Programkod ska se ut som exemplet nedan. Koden måste vara korrekt indenterad då den blir lättare att läsa vilket gör det lättare att hitta syntaktiska fel.
-
-```
-function errorCallback(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-            // Geolocation API stöds inte, gör något
-            break;
-        case error.POSITION_UNAVAILABLE:
-            // Misslyckat positionsanrop, gör något
-            break;
-        case error.UNKNOWN_ERROR:
-            // Okänt fel, gör något
-            break;
-    }
-}
-```
-
-Bilder läggs i samma mapp som markdown-filen.
-
-![](android.png)
-
-Läs gärna:
-
-- Boulos, M.N.K., Warren, J., Gong, J. & Yue, P. (2010) Web GIS in practice VIII: HTML5 and the canvas element for interactive online mapping. International journal of health geographics 9, 14. Shin, Y. &
-- Wunsche, B.C. (2013) A smartphone-based golf simulation exercise game for supporting arthritis patients. 2013 28th International Conference of Image and Vision Computing New Zealand (IVCNZ), IEEE, pp. 459–464.
-- Wohlin, C., Runeson, P., Höst, M., Ohlsson, M.C., Regnell, B., Wesslén, A. (2012) Experimentation in Software Engineering, Berlin, Heidelberg: Springer Berlin Heidelberg.
+![InternalWebImage.png](InternalWebImage.png)
